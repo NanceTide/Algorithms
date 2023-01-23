@@ -55,6 +55,62 @@ class Digraph {
     }
 };
 
+class Edge {
+    public:
+    int v;
+    int w;
+    double weight;
+    Edge(int v, int w, double weight) : v(v), w(w), weight(weight) {}
+    Edge() {}
+    int either() {
+        return v;
+    }
+    int other(int i) {
+        if(i == v)
+            return w;
+        else if(i == w)
+            return v;
+        else
+            throw;
+    }
+};
+
+bool operator<(Edge a, Edge b) {
+    return a.weight < b.weight;
+}
+
+bool operator>(Edge a, Edge b) {
+    return a.weight > b.weight;
+}
+
+bool operator<=(Edge a, Edge b) {
+    return a.weight <= b.weight;
+}
+
+bool operator>=(Edge a, Edge b) {
+    return a.weight >= b.weight;
+}
+
+class EdgeGraph {
+    public:
+    int V;
+    int E;
+    vector<vector<Edge>> adj;
+    EdgeGraph(int V) : V(V), E(0), adj(V, vector<Edge>()) {}
+    void addEdge(int v, int w, double weight) {
+        adj[v].push_back(Edge(v, w, weight));
+        adj[w].push_back(Edge(w, v, weight));
+        E++;
+    }
+    void addEdge(Edge e){
+        int v = e.either();
+        int w = e.other(v);
+        adj[v].push_back(Edge(v, w, e.weight));
+        adj[w].push_back(Edge(w, v, e.weight));
+        E++;
+    }
+};
+
 ostream& operator<<(ostream &os, Graph &g) {
     for(int i = 0; i < g.V; i++) {
         cout << i << " : ";
