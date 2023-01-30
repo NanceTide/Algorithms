@@ -109,6 +109,13 @@ class EdgeGraph {
         adj[w].push_back(Edge(w, v, e.weight));
         E++;
     }
+    set<Edge> edges() {
+        set<Edge> edges;
+        for(auto vec : adj)
+            for(Edge e : vec)
+                edges.insert(e);
+        return edges;
+    }
 };
 
 ostream& operator<<(ostream &os, Graph &g) {

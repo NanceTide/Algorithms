@@ -182,6 +182,67 @@ class PrimMST {
     }
 }prim;
 
+class UnionFind {
+    public:
+    vector<int> parent;
+    vector<int> size;
+    int count;
+    UnionFind(int num = 0) : parent(rangeInt(num)), size(num, 1), count(num) {}
+    int find(int index) {
+        int root = index;
+        while(parent[root] != root)
+            root = parent[root];
+        while(index != parent[index]) {
+            int tmp = parent[index];
+            parent[index] = root;
+            index = tmp;
+        }
+        return root;
+    }
+    bool connected(int p, int q) {
+        return find(p) == find(q);
+    }
+    void connect(int p, int q) {
+        int pIndex = find(p);
+        int qIndex = find(q);
+        if(pIndex == qIndex)
+            return;
+        if(size[pIndex] < size[qIndex]) {
+            parent[pIndex] = qIndex;
+            size[qIndex] += size[pIndex];
+        }
+        else {
+            parent[qIndex] = pIndex;
+            size[pIndex] += size[qIndex];
+        }
+        count--;
+    }
+};
+
+class KruskalMST {
+    public:
+    deque<Edge> mst;
+    Heap<Edge> pq;
+    UnionFind uf;
+    deque<Edge> operator()(EdgeGraph g) {
+        mst = deque<Edge>();
+        pq = Heap<Edge>();
+        uf = UnionFind(g.V);
+        for(Edge e : g.edges())
+            pq.insert(e);
+        while(pq.n && mst.size() < g.V - 1) {
+            Edge e = pq.delMin();
+            int p = e.either();
+            int q = e.other(p);
+            if(uf.connected(p, q))
+                continue;
+            uf.connect(p, q);
+            mst.push_back(e);
+        }
+        return mst;
+    }
+}kruskal;
+
 int main() {
 
     ios::sync_with_stdio(false);
