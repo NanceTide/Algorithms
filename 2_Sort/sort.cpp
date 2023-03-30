@@ -290,23 +290,22 @@ class QuickSortBetter : public SortList {
 int main() {
 
     int num = 1024000;
-    // BubbleSort bubblesort(randomInt(num));
-    // InsertSort insertsort(randomInt(num));
-    // SelectionSort selectionsort(randomInt(num));
-    // QuickSort quicksort(randomInt(num));
-    // ShellSort shellsort(randomInt(num));
-    // MergeSort mergesort(randomInt(num));
-    // MergeSortWithInsert mergesortwithinsert(randomInt(num));
-    // MergeBUSort mergebusort(randomInt(num));
+    BubbleSort bubblesort(randomInt(num));
+    InsertSort insertsort(randomInt(num));
+    SelectionSort selectionsort(randomInt(num));
+    QuickSort quicksort(randomInt(num));
+    ShellSort shellsort(randomInt(num));
+    MergeSort mergesort(randomInt(num));
+    MergeSortWithInsert mergesortwithinsert(randomInt(num));
+    MergeBUSort mergebusort(randomInt(num));
     // check(bubblesort);
     // check(insertsort);
     // check(selectionsort);
-    // check(quicksort);
-    // check(shellsort);
-    // check(mergesort);
-    // check(mergesortwithinsert);
-    // check(mergebusort);
-
+    check(quicksort);
+    check(shellsort);
+    check(mergesort);
+    check(mergesortwithinsert);
+    check(mergebusort);
 
     // HeapSort heapsort(randomInt(100));
     // heapsort.sort();
@@ -319,11 +318,11 @@ int main() {
     // check(quick2);
     // check(quick3);
 
-    auto vec = randomInt(num);
-    QuickSort quickori(vec);
-    QuickSortBetter quickbet(vec);
-    check(quickori);
-    check(quickbet);
+    // auto vec = randomInt(num);
+    // QuickSort quickori(vec);
+    // QuickSortBetter quickbet(vec);
+    // check(quickori);
+    // check(quickbet);
 
     return 0;
 
