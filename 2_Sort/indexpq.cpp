@@ -30,7 +30,7 @@ template <typename T> class IndexMinPQ {
         exchange(1, n);
         n--;
         sink(1);
-        qp[pq[n + 1]] = -1;
+        qp[min_index] = -1;
         return min_index;
     }
     int size() {
