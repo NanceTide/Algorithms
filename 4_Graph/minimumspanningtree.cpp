@@ -229,7 +229,7 @@ class KruskalMST {
         pq = Heap<Edge>();
         uf = UnionFind(g.V);
         for(Edge e : g.edges())
-            pq.insert(e);
+            pq.insert(e); 
         while(pq.n && mst.size() < g.V - 1) {
             Edge e = pq.delMin();
             int p = e.either();

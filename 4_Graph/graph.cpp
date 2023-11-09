@@ -221,15 +221,8 @@ int main() {
 
     Graph g(15);
     g.addEdge(0, 1);
-    g.addEdge(2, 3);
-    g.addEdge(1, 4);
-    g.addEdge(0, 2);
-    g.addEdge(8, 3);
-    g.addEdge(11, 2);
-    g.addEdge(6, 7);
-    g.addEdge(10, 7);
-    g.addEdge(5, 9);
-    g.addEdge(8, 0);
+    g.addEdge(5, 6);
+
 
     cout << g;
     

@@ -3,16 +3,17 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe 生成活动文件",
-            "command": "D:\\codeblocks\\MinGW\\bin\\g++.exe",
+            "command": "D:\\Dev\\codeblocks\\MinGW\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
+                "-std=c++17",
                 "-g",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "D:\\codeblocks\\MinGW\\bin"
+                "cwd": "D:\\Dev\\codeblocks\\MinGW\\bin"
             },
             "problemMatcher": [
                 "$gcc"
